@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery Demo</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+
+.btn {
+  padding: 10px 20px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: 0 none;
+}
+.btn.sharp {
+  border-radius: 0;
+}
+
+.btn-info {
+  background: #31cde8;
+  color: #ffffff;
+}
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
+  background: #5fd4e8;
+}
+.btn-info:active, .btn-info.active {
+  background: #35a2b5;
+  box-shadow: none;
+}   
+
+.reg-input{
+  border-radius: 0;
+  margin-bottom: 15px;
+  height: 40px;
+}
+.reg-form{
+  width: 300px;
+  padding: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left:-150px;
+  margin-top:-120px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+.login-link {
+  margin-bottom: 15px;
+  display: block;
+}
+ul li{
+  list-style: none;
+}
+
+.input-tooltip + .tooltip > .tooltip-inner {max-width: 300px;height: 40px;line-height: 40px;width: 200px}
+
+</style>
+</head>
+  <body style="background: url(images/bg.jpg) no-repeat;min-height:400px" ng-app="registerApp">
+         
+  <ul>
+  <li>
+   <form class="form-group reg-form">
+            <input type="text" class="form-control reg-input input-tooltip" id="email" name="email" placeholder="Email Address" data-original-title="Please provide valid email address" data-placement="top" data-toggle="tooltip" >
+            <input type="password" class="form-control reg-input input-tooltip" id="password" name="password" placeholder="Password" data-original-title="Tooltip on top" data-placement="top" data-toggle="tooltip" >
+            <a href="#" class="login-link"> Already has an account?</a>
+            <button type="button" class="btn btn-info sharp">REGISTER</button>
+          </form>
+  </li>
+   <!--  <li>
+    <form class="form-group reg-form" style="display:none">
+            <input type="text" class="form-control reg-input" id="email" name="email" placeholder="Email Address"  >
+            <input type="password" class="form-control reg-input" id="password" name="password" placeholder="Password">
+            <a href="#" class="login-link">Do you have an account?</a>
+            <button type="button" class="btn btn-info sharp">LOGIN</button>
+          </form>
+</li> -->
+  </ul>
+          
+         
+         <!-- Footer 
+        <footer class="container clearfix" style="text-align:center">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <p><img src="images/logo.gif" height="20px" > 2015 All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        -->
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+       $(function () {
+            console.log($('.reg-input'));
+            $('.reg-input').tooltip({
+
+                  animation: true,
+                  trigger: 'click' //触发tooltip的事件
+            });
+        });
+
+        'use strict';
+        var app = angular.module('registerApp', []);
+       // app.controller()
+    </script>
+  </body>
+</html>
