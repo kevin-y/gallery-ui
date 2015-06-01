@@ -99,16 +99,15 @@ ul li{
 </head>
   <body ng-app="registerApp">
          
-  <ul class="reg-form" ng-controller="RegistrationController">
-  <li>
+  <div class="reg-form" ng-controller="RegistrationController">
    <h2 class="reg-form-title"><img src="images/logo.gif" alt=""><span>CREATE NEW ACCOUNT</span></h2>
    <form class="form-group">
-            <input type="text" class="form-control reg-input input-tooltip" id="email" name="email" autocomplete="off" placeholder="Email Address" >
-            <input type="password" class="form-control reg-input input-tooltip" id="password" name="password" placeholder="Password" >
-            <a href="#" class="login-link">Already have an account?</a>
-            <button type="button" class="btn btn-info sharp">REGISTER</button>
-          </form>
-  </li>
+      <input type="email" class="form-control reg-input input-tooltip" id="email" name="email" autocomplete="off" placeholder="Email Address" ng-model="email" ng-blur="checkEmail()" value="">
+      <input type="password" class="form-control reg-input input-tooltip" id="password" name="password" placeholder="Password" ng-model="password"  >
+      <a href="#" class="login-link">Already have an account?</a>
+      <button type="button" class="btn btn-info sharp" ng-click="register()">REGISTER</button>
+    </form>
+  </div>
    <!--  <li>
     <form class="form-group reg-form" style="display:none">
             <input type="text" class="form-control reg-input" id="email" name="email" placeholder="Email Address"  >
@@ -117,20 +116,10 @@ ul li{
             <button type="button" class="btn btn-info sharp">LOGIN</button>
           </form>
 </li> -->
-  </ul>
           
-         
-         <!-- Footer 
-        <footer class="container clearfix" style="text-align:center">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-xs-12">
-                    <p><img src="images/logo.gif" height="20px" > 2015 All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-        -->
     <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript">
       /* $(function () {
             console.log($('.reg-input'));
@@ -143,8 +132,33 @@ ul li{
 
         'use strict';
         var app = angular.module('registerApp', []);
-        app.controller('RegistrationController', function($scope) {
-            
+        app.controller('RegistrationController', function($scope, $http) {
+            $scope.checkEmail = function() {
+              var email = $('#email').val();
+              if(typeof email != 'undefined') {
+                var url = 'https://localhost/users/' + email + "/exists?type=EMAIL";
+                $http.get(url).success(function(data) {
+                  console.log(data);
+                });
+              }
+            };
+
+        /*    $scope.$watch("email", function(newValue, oldValue) {
+               // auto-complete email  
+               if(typeof newValue != 'undefined') {
+                  
+               }
+            });
+            $scope.$watch("password", function(newValue, oldValue) {
+
+            });*/
+
+
+            $scope.register = function() {
+              var email = $scope.email,
+                  password = $scope.password;
+              if(email == '') ;
+            };
         });
     </script>
   </body>
