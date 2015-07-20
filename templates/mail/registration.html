@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery Email Verification</title>
+<style type="text/css">
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial,sans;
+}
+.container{
+  margin: 0 auto;
+  width: 800px;
+}
+.header{
+  background-color: #23bfeb;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+}
+.main{
+  height: 300px;
+}
+.verify-btn {
+  margin: 0 auto;
+  width: 280px;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #23bfeb;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border:1px solid #23bfeb;
+}
+.verify-btn:hover{
+  color: #fff;
+  background-color: #23bfeb;
+}
+.footer{
+  border-top: 2px solid #23bfeb;
+  height: 60px;
+}
+</style>
+</head>
+  <body>
+    <div class="container">
+        <div class="header">
+          PLEASE VERIFY YOUR EMAIL
+        </div>
+
+        <div class="main">
+          <h2>Dear %username%,</h2>
+          <p>Thank you for registering Gallery. To verify your email for using Gallery services, please click the link below:</p>
+          <p class="verify-btn-wrp"><a class="verify-btn" href="#">Click here to verify your email</a></p>
+          <p>
+            If the link above is not displayed or does not work, copy and paste the link below to the address bar of your browser.
+          </p>
+          <p>%verification_link%</p>
+          <p>Best Regards,</p>
+          <p>Gallery Team</p>
+        </div>
+        <div class="footer">
+           <p> &copy;2015 All rights reserved. Powered by Gallery Team.</p>
+        </div>
+    </div>
+  </body>
+</html>
